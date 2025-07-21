@@ -19,8 +19,7 @@
 		"build": "del-cli dist && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && tsc -p tsconfig.types.json",
 		"test": "xo && ava && del-cli dist && tsc && tsd",
 		"bench": "node --import=tsx/esm bench.ts",
-		"prepublishOnly": "del-cli dist && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && tsc -p tsconfig.types.json",
-		"prepare": "npm run build"
+		"prepublishOnly": "del-cli dist && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && tsc -p tsconfig.types.json"
 	},
 	"files": [
 		"dist/esm",
