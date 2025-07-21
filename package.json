@@ -5,25 +5,28 @@
 	"license": "MIT",
 	"repository": "sindresorhus/p-queue",
 	"funding": "https://github.com/sponsors/sindresorhus",
-	"type": "module",
+	"main": "./dist/cjs/index.js",
 	"exports": {
-		"types": "./dist/index.d.ts",
-		"default": "./dist/index.js"
+		"types": "./dist/types/index.d.ts",
+		"import": "./dist/esm/index.js",
+		"require": "./dist/cjs/index.js"
 	},
 	"sideEffects": false,
 	"engines": {
 		"node": ">=18"
 	},
 	"scripts": {
-		"build": "del-cli dist && tsc",
+		"build": "del-cli dist && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && tsc -p tsconfig.types.json",
 		"test": "xo && ava && del-cli dist && tsc && tsd",
 		"bench": "node --import=tsx/esm bench.ts",
-		"prepublishOnly": "del-cli dist && tsc"
+		"prepublishOnly": "del-cli dist && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && tsc -p tsconfig.types.json"
 	},
 	"files": [
-		"dist"
+		"dist/esm",
+		"dist/cjs",
+		"dist/types"
 	],
-	"types": "dist/index.d.ts",
+	"types": "./dist/types/index.d.ts",
 	"keywords": [
 		"promise",
 		"queue",
@@ -48,7 +51,7 @@
 	],
 	"dependencies": {
 		"eventemitter3": "^5.0.1",
-		"p-timeout": "^6.1.2"
+		"p-timeout": "git+https://github.com/flareclouds/p-timeout.git#a259bc639089d0d8fa000fdabb3b72eba4ace56c"
 	},
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^5.0.0",
