@@ -19,7 +19,8 @@
 		"build": "del-cli dist && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && tsc -p tsconfig.types.json",
 		"test": "xo && ava && del-cli dist && tsc && tsd",
 		"bench": "node --import=tsx/esm bench.ts",
-		"prepublishOnly": "del-cli dist && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && tsc -p tsconfig.types.json"
+		"prepublishOnly": "del-cli dist && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && tsc -p tsconfig.types.json",
+		"prepare": "npm run build"
 	},
 	"files": [
 		"dist/esm",
@@ -51,7 +52,7 @@
 	],
 	"dependencies": {
 		"eventemitter3": "^5.0.1",
-		"p-timeout": "git+https://github.com/flareclouds/p-timeout.git#a259bc639089d0d8fa000fdabb3b72eba4ace56c"
+		"p-timeout": "git+https://github.com/flareclouds/p-timeout.git#fae3062ef845b8155e0dd072ae854b0cb0895c1b"
 	},
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^5.0.0",
